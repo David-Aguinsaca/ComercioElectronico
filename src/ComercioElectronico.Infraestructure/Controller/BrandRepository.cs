@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 //paso 7
 namespace ComercioElectronico.Infraestructure.Controller;
 
-public class BrandRepository : EfRepository<Brand>, IBrandRepository
+public class BrandRepository : EfRepository<Brand, int>, IBrandRepository
 {
     private readonly ECommerceDbContext _context;
 

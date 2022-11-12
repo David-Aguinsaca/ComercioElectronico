@@ -1,4 +1,4 @@
-namespace ComercioElectronico.Application.Repository;
+/* namespace ComercioElectronico.Application.Repository;
 
 public interface IProductAppService <ModelDto, ModelCreateUpdateDto>
 {
@@ -11,4 +11,4 @@ public interface IProductAppService <ModelDto, ModelCreateUpdateDto>
     Task<ModelDto> GetByIdAsync (Guid id);
     Task<bool> DeleteAsync(Guid id);
 
-}
+} */

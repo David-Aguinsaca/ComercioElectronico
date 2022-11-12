@@ -17,9 +17,10 @@ public static class ApplicationServiceCollectionExtensions
     {
 
         //Inyeccion dependencias AppService
-        services.AddTransient<IAppService<BrandDto, BrandCreateUpdateDto>, BrandAppService>();
-        services.AddTransient<IAppService<TypeProductDto, TypeProductCreateUpdateDto>, TypeProductAppService>();
-        services.AddTransient<IProductAppService<ProductDto, ProductCreateUpdateDto>, ProductAppService>();
+        services.AddTransient<IAppService<BrandDto, BrandCreateUpdateDto, int>, BrandAppService>();
+        services.AddTransient<IAppService<TypeProductDto, TypeProductCreateUpdateDto, int>, TypeProductAppService>();
+        services.AddTransient<IAppService<ProductDto, ProductCreateUpdateDto, Guid>, ProductAppService>();
+        /* services.AddTransient<IProductAppService<ProductDto, ProductCreateUpdateDto>, ProductAppService>(); */
 
         //Configurar la inyección de todos los profile que existen en un Assembly
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

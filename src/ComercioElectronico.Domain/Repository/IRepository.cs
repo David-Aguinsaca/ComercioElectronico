@@ -4,19 +4,19 @@ using System.Linq.Expressions;
 
 namespace ComercioElectronico.Domain.Repository;
 
-public interface IRepository<T> where T : class
+public interface IRepository<TEntity, TEntityId> where TEntity : class
 {
     IUnitOfWork UnitOfWork { get; }
 
-    IQueryable<T> GetAll(bool asNoTracking = true);
+    IQueryable<TEntity> GetAll(bool asNoTracking = true);
 
-    Task<T> GetByIdAsync(int id);
+    Task<TEntity> GetByIdAsync(TEntityId id);
 
-    Task<T> AddAsync(T entity);
+    Task<TEntity> AddAsync(TEntity entity);
 
-    Task UpdateAsync (T entity);
+    Task UpdateAsync (TEntity entity);
 
-    void  Delete(T entity);
+    void  Delete(TEntity entity);
 
-    IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties);
+    IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
 }

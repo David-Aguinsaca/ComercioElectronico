@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace ComercioElectronico.Application.Controller;
 
-public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpdateDto>
+public class ProductAppService : IAppService<ProductDto, ProductCreateUpdateDto, Guid>
 {
     private readonly IProductRepository productRepository;
     private readonly IMapper mapper;
@@ -29,16 +29,6 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
         try
         {
 
-
-            /* var product  = new Product(Guid.NewGuid());
-            product.Stock = entityDto.Stock;
-            product.Name = entityDto.Name;
-            product.BrandId = entityDto.BrandId;
-            product.TypeProductId = entityDto.TypeProductId;
-
-            //product = mapper.Map<Product>(entityDto);
-            product = await productRepository.AddAsync(product); */
-
             var product = mapper.Map<Product>(entityDto);
             product = await productRepository.AddAsync(product);
 
@@ -55,13 +45,13 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
         try
         {
 
-            /* var entity = await productRepository.GetByIdAsync(id);
+            var entity = await productRepository.GetByIdAsync(id);
             if (entity == null)
             {
                 throw new ArgumentException($"La marca con la id {id} no existe");
             }
 
-            productRepository.Delete(entity); */
+            productRepository.Delete(entity);
             //await typeProductRepository.UnitOfWork.SaveChangesAsync();
 
             return true;
@@ -77,9 +67,12 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
     {
         try
         {
-            var objectList = productRepository.GetAll();
+            var consulta = productRepository.GetAllIncluding(x => x.Brand, x => x.TypeProduct);
 
-            var objectListDto = mapper.Map<IEnumerable<ProductDto>>(objectList);
+            var consultaOrdenDto = from x in consulta
+                                   select x;
+
+            var objectListDto = mapper.Map<IEnumerable<ProductDto>>(consultaOrdenDto);
 
             return objectListDto.ToList();
         }
@@ -95,7 +88,6 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
     {
         try
         {
-
             var consulta = productRepository.GetAllIncluding(x => x.Brand, x => x.TypeProduct);
 
             var consultaOrdenDto = from x in consulta
@@ -104,8 +96,6 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
 
             return mapper.Map<ProductDto>(consultaOrdenDto.SingleOrDefault());
 
-
-            //return consultaOrdenDto.SingleOrDefault();
         }
         catch (System.Exception ex)
         {
@@ -118,9 +108,9 @@ public class ProductAppService : IProductAppService<ProductDto, ProductCreateUpd
     {
         try
         {
-            /*var entity = await productRepository.GetByIdAsync(id);
+            var entity = await productRepository.GetByIdAsync(id);
             var updateEntity = mapper.Map<ProductCreateUpdateDto, Product>(entityDto, entity);
-            await productRepository.UpdateAsync(updateEntity); */
+            await productRepository.UpdateAsync(updateEntity);
             return true;
         }
         catch (System.Exception ex)

@@ -9,9 +9,9 @@ namespace ComercioElectronico.HttpApi.Controllers;
 [Route("api/[controller]")]
 public class BrandController : ControllerBase
 {
-    private readonly IAppService<BrandDto, BrandCreateUpdateDto> brandAppService;
+    private readonly IAppService<BrandDto, BrandCreateUpdateDto, int> brandAppService;
 
-    public BrandController(IAppService<BrandDto, BrandCreateUpdateDto> brandAppService )
+    public BrandController(IAppService<BrandDto, BrandCreateUpdateDto, int> brandAppService )
     {
         this.brandAppService = brandAppService;
     }

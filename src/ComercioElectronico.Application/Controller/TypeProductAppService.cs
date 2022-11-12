@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace ComercioElectronico.Application.Controller;
 
-public class TypeProductAppService : IAppService<TypeProductDto, TypeProductCreateUpdateDto>
+public class TypeProductAppService : IAppService<TypeProductDto, TypeProductCreateUpdateDto, int>
 {
     private readonly ITypeProductRepository typeProductRepository;
     private readonly IMapper mapper;

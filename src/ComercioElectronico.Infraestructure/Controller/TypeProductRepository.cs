@@ -4,7 +4,7 @@ using ComercioElectronico.Infraestructure.Repository;
 
 namespace ComercioElectronico.Infraestructure.Controller;
 
-public class TypeProductRepository : EfRepository<TypeProduct>, ITypeProductRepository
+public class TypeProductRepository : EfRepository<TypeProduct, int>, ITypeProductRepository
 {
     private readonly ECommerceDbContext context;
 

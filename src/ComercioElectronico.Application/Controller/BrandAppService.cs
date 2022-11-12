@@ -9,7 +9,7 @@ using FluentValidation;
 namespace ComercioElectronico.Application.Controller;
 
 //public class BrandAppService : IBrandAppService
-public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto>
+public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto, int>
 {
     private readonly IBrandRepository brandRepository;
     private readonly IMapper mapper;

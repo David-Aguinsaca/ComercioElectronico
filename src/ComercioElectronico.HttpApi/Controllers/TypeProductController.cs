@@ -8,9 +8,9 @@ namespace ComercioElectronico.HttpApi.Controllers;
 [Route("api/[controller]")]
 public class TypeProductController : ControllerBase
 {
-    private readonly IAppService<TypeProductDto, TypeProductCreateUpdateDto> typeProductAppService;
+    private readonly IAppService<TypeProductDto, TypeProductCreateUpdateDto, int> typeProductAppService;
 
-    public TypeProductController(IAppService<TypeProductDto, TypeProductCreateUpdateDto> typeProductAppService )
+    public TypeProductController(IAppService<TypeProductDto, TypeProductCreateUpdateDto, int> typeProductAppService )
     {
         this.typeProductAppService = typeProductAppService;
     }

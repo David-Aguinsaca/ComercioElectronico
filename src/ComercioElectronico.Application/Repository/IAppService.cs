@@ -1,14 +1,14 @@
 namespace ComercioElectronico.Application.Repository;
 
-public interface IAppService <ModelDto, ModelCreateUpdateDto>
+public interface IAppService <ModelDto, ModelCreateUpdateDto, TypeId>
 {
     ICollection<ModelDto> GetAll();
 
     Task<bool> CreateAsync(ModelCreateUpdateDto entityDto);
 
-    Task<bool> UpdateAsync (int id, ModelCreateUpdateDto entityDto);
+    Task<bool> UpdateAsync (TypeId id, ModelCreateUpdateDto entityDto);
 
-    Task<bool> DeleteAsync(int id);
+    Task<bool> DeleteAsync(TypeId id);
 
-    Task<ModelDto> GetByIdAsync (int id);
+    Task<ModelDto> GetByIdAsync (TypeId id);
 }

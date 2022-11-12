@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ComercioElectronico.Infraestructure.Repository;
 
-public class EfRepository<T> : IRepository<T> where T : class
+public class EfRepository<TEntity, TEntityId> : IRepository<TEntity, TEntityId> where TEntity : class
 {
     private readonly ECommerceDbContext _context;
 
@@ -19,30 +19,30 @@ public class EfRepository<T> : IRepository<T> where T : class
         _context = context;
     }
 
-    public virtual async Task<T> GetByIdAsync(int id)
+    public virtual async Task<TEntity> GetByIdAsync(TEntityId id)
     {
-        return await _context.Set<T>().FindAsync(id);
+        return await _context.Set<TEntity>().FindAsync(id);
     }
 
    
-    public virtual IQueryable<T> GetAll(bool asNoTracking = true)
+    public virtual IQueryable<TEntity> GetAll(bool asNoTracking = true)
     {
         if (asNoTracking)
-            return _context.Set<T>().AsNoTracking();
+            return _context.Set<TEntity>().AsNoTracking();
         else
-            return _context.Set<T>().AsQueryable();
+            return _context.Set<TEntity>().AsQueryable();
     }
 
-    public virtual async Task<T> AddAsync(T entity)
+    public virtual async Task<TEntity> AddAsync(TEntity entity)
     {
 
-        await _context.Set<T>().AddAsync(entity);
+        await _context.Set<TEntity>().AddAsync(entity);
         await _context.SaveChangesAsync();
 
         return entity;
     }
 
-    public virtual async  Task UpdateAsync(T entity)
+    public virtual async  Task UpdateAsync(TEntity entity)
     {
           _context.Update(entity);
         await _context.SaveChangesAsync();
@@ -50,19 +50,19 @@ public class EfRepository<T> : IRepository<T> where T : class
         return;
     }
 
-    public virtual void  Delete(T entity)
+    public virtual void  Delete(TEntity entity)
     {
-        _context.Set<T>().Remove(entity);
+        _context.Set<TEntity>().Remove(entity);
         _context.SaveChanges();
  
     }
  
-    public virtual IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
+    public virtual IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties)
     {
-        IQueryable<T> queryable = GetAll();
-        foreach (Expression<Func<T, object>> includeProperty in includeProperties)
+        IQueryable<TEntity> queryable = GetAll();
+        foreach (Expression<Func<TEntity, object>> includeProperty in includeProperties)
         {
-            queryable = queryable.Include<T, object>(includeProperty);
+            queryable = queryable.Include<TEntity, object>(includeProperty);
         }
 
         return queryable;

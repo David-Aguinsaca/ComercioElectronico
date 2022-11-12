@@ -3,7 +3,6 @@ using System.Reflection;
 using ComercioElectronico.Application.Controller;
 using ComercioElectronico.Application.Model;
 using ComercioElectronico.Application.Repository;
-using ComercioElectronico.Application.Validator;
 using FluentValidation;
 //using FluentValidation;
 using Microsoft.Extensions.Configuration;
@@ -17,8 +16,10 @@ public static class ApplicationServiceCollectionExtensions
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration config)
     {
 
-        //services.AddTransient<IBrandAppService, BrandAppService>();
+        //Inyeccion dependencias AppService
         services.AddTransient<IAppService<BrandDto, BrandCreateUpdateDto>, BrandAppService>();
+        services.AddTransient<IAppService<TypeProductDto, TypeProductCreateUpdateDto>, TypeProductAppService>();
+        services.AddTransient<IProductAppService<ProductDto, ProductCreateUpdateDto>, ProductAppService>();
 
         //Configurar la inyección de todos los profile que existen en un Assembly
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

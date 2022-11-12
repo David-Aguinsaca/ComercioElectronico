@@ -9,6 +9,20 @@ public class ConfigurationMapperProfile : Profile
     public ConfigurationMapperProfile()
     {
 
+        //Product
+        CreateMap<Product, ProductDto>();
+        CreateMap<Product, ProductCreateUpdateDto>();
+        CreateMap<ProductCreateUpdateDto, Product>();
+        CreateMap<Product, IEnumerable<ProductDto>>();
+
+
+        //TypeProduct
+        CreateMap<TypeProduct, TypeProductDto>();
+        CreateMap<TypeProduct, TypeProductCreateUpdateDto>();
+        CreateMap<TypeProductCreateUpdateDto, TypeProduct>();
+        CreateMap<TypeProduct, IEnumerable<TypeProductDto>>();
+
+        //brand
         CreateMap<Brand, BrandCreateUpdateDto>();
         CreateMap<BrandCreateUpdateDto, Brand>();
 
@@ -27,6 +41,8 @@ public class ConfigurationMapperProfile : Profile
             Hp = src.Hp,
             CarId = id,
         })); */
+
+
 
 
     }

@@ -40,7 +40,7 @@ public class BrandController : ControllerBase
         return await brandAppService.UpdateAsync(id, x);
     }
 
-    [HttpDelete("delete")]
+    [HttpDelete("delete_brand")]
     public async Task<bool> DeleteAsync(int id)
     {
         return await brandAppService.DeleteAsync(id);

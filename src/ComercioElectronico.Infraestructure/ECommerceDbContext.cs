@@ -11,6 +11,8 @@ namespace ComercioElectronico.Infraestructure;
 public class ECommerceDbContext : DbContext, IUnitOfWork
 {
     public DbSet<Brand> Brands { get; set; }
+    public DbSet<TypeProduct> TypeProducts {get; set;}
+    public DbSet<Product> Products {get; set;}
 
     public string DbPath { get; set; }
 

@@ -48,7 +48,7 @@ public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto>
             var entity = await brandRepository.GetByIdAsync(id);
             if (entity == null)
             {
-                throw new ArgumentException($"La marca no con la id {id} no existe");
+                throw new ArgumentException($"La marca con la id {id} no existe");
             }
 
             brandRepository.Delete(entity);
@@ -67,11 +67,19 @@ public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto>
 
     public ICollection<BrandDto> GetAll()
     {
-        var objectList = brandRepository.GetAll();
+        try
+        {
+            var objectList = brandRepository.GetAll();
 
-        var objectListDto = mapper.Map<IEnumerable<BrandDto>>(objectList);
+            var objectListDto = mapper.Map<IEnumerable<BrandDto>>(objectList);
 
-        return objectListDto.ToList();
+            return objectListDto.ToList();
+        }
+        catch (System.Exception ex)
+        {
+            throw new ArgumentException(ex.ToString());
+        }
+
     }
 
     public async Task<BrandDto> GetByIdAsync(int id)
@@ -90,15 +98,6 @@ public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto>
             throw new ArgumentException(ex.ToString());
 
         }
-
-        /* var config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Brand, BrandDto>();
-        });
-        var mapper = new Mapper(config);
-        var entidadDto = mapper.Map<BrandDto>(brand); */
-
-        return null;
     }
 
     public async Task<bool> UpdateAsync(int id, BrandCreateUpdateDto entityDto)

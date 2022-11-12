@@ -1,8 +1,5 @@
 using ComercioElectronico.Application;
-using ComercioElectronico.Application.Controller;
-using ComercioElectronico.Domain.Repository;
 using ComercioElectronico.Infraestructure;
-using ComercioElectronico.Infraestructure.Controller;
 
 var builder = WebApplication.CreateBuilder(args);
 

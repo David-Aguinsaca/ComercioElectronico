@@ -13,16 +13,10 @@ public static class InfraestructureServiceCollectionExtensions
     public static IServiceCollection AddInfraestructure(this IServiceCollection services, IConfiguration config)
     {
 
-        /* services.AddTransient<IMarcaRepository, MarcaRepository>();
-        services.AddTransient<IProductoRepository, ProductoRepository>();
-        services.AddTransient<ITipoProductoRepository, TipoProductoRepository>();
-        services.AddTransient<IOrdenRepository, OrdenRepository>();
-        services.AddTransient<IClienteRepository, ClienteRepository>(); */
-
         services.AddTransient<IBrandRepository, BrandRepository>();
+        services.AddTransient<ITypeProductRepository, TypeProductRepository>();
+        services.AddTransient<IProductRepository, ProductRepository>();
 
-
-        //Configuraciones de Dependencias
         //Configurar DBContext
         services.AddDbContext<ECommerceDbContext>(options =>
         {

@@ -1,0 +1,17 @@
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Infraestructure.deps.json
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Infraestructure.runtimeconfig.json
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Infraestructure.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Infraestructure.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Domain.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\bin\Debug\net6.0\ComercioElectronico.Domain.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.csproj.AssemblyReference.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.AssemblyInfoInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.AssemblyInfo.cs
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.csproj.CoreCompileInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.csproj.CopyComplete
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\refint\ComercioElectronico.Infraestructure.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ComercioElectronico.Infraestructure.genruntimeconfig.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Infraestructure\obj\Debug\net6.0\ref\ComercioElectronico.Infraestructure.dll

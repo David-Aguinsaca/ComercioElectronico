@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HsYbaPW6HG32uJwxU7o6U4oqG8rqXRQOTz+rUMAZYiI=",
+  "Source": "ComercioElectronico.HttpApi",
+  "BasePath": "_content/ComercioElectronico.HttpApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

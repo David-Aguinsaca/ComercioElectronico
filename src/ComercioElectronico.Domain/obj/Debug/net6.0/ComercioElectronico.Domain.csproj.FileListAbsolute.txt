@@ -1,0 +1,12 @@
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\bin\Debug\net6.0\ComercioElectronico.Domain.deps.json
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\bin\Debug\net6.0\ComercioElectronico.Domain.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\bin\Debug\net6.0\ComercioElectronico.Domain.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.csproj.AssemblyReference.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.AssemblyInfoInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.AssemblyInfo.cs
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.csproj.CoreCompileInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\refint\ComercioElectronico.Domain.dll
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ComercioElectronico.Domain.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Domain\obj\Debug\net6.0\ref\ComercioElectronico.Domain.dll

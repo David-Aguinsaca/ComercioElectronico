@@ -1,0 +1,15 @@
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.csproj.AssemblyReference.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.AssemblyInfoInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.AssemblyInfo.cs
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.csproj.CoreCompileInputs.cache
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\bin\Debug\net6.0\ComercioElectronico.Application.deps.json
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\bin\Debug\net6.0\ComercioElectronico.Application.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\bin\Debug\net6.0\ComercioElectronico.Application.pdb
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\bin\Debug\net6.0\ComercioElectronico.Domain.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\bin\Debug\net6.0\ComercioElectronico.Domain.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.csproj.CopyComplete
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\refint\ComercioElectronico.Application.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ComercioElectronico.Application.pdb
+c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.Application\obj\Debug\net6.0\ref\ComercioElectronico.Application.dll

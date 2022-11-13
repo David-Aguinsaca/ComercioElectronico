@@ -20,6 +20,7 @@ public static class ApplicationServiceCollectionExtensions
         services.AddTransient<IAppService<BrandDto, BrandCreateUpdateDto, int>, BrandAppService>();
         services.AddTransient<IAppService<TypeProductDto, TypeProductCreateUpdateDto, int>, TypeProductAppService>();
         services.AddTransient<IAppService<ProductDto, ProductCreateUpdateDto, Guid>, ProductAppService>();
+        services.AddTransient<IAppService<ClientDto, ClientCreateUpdateDto, Guid>, ClientAppService>();
         /* services.AddTransient<IProductAppService<ProductDto, ProductCreateUpdateDto>, ProductAppService>(); */
 
         //Configurar la inyección de todos los profile que existen en un Assembly

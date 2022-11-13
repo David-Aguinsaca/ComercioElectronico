@@ -11,6 +11,6 @@ public class Brand
     [Key]
     public int Id {get; set;}
     public string Name {get; set;}
-    public string Branding {get; set;}
+    public string? Branding {get; set;}
     public ICollection<Product> ListProduct{get; set;}
 }

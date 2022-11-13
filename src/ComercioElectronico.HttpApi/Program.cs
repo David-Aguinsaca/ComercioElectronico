@@ -18,8 +18,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfraestructure(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
 
-/* builder.Services.AddTransient<IBrandRepository, BrandRepository>();
-builder.Services.AddTransient<IBrandAppService, BrandAppService>(); */
 
 var app = builder.Build();
 

@@ -8,6 +8,12 @@ public class ConfigurationMapperProfile : Profile
 {
     public ConfigurationMapperProfile()
     {
+        //Client
+        CreateMap<Client, ClientDto>();
+        CreateMap<ClientDto, Client>();
+        CreateMap<Client, ClientCreateUpdateDto>();
+        CreateMap<ClientCreateUpdateDto, Client>();
+        CreateMap<Client, IEnumerable<ClientDto>>();
 
         //Product
         CreateMap<Product, ProductDto>();

@@ -16,6 +16,7 @@ public static class InfraestructureServiceCollectionExtensions
         services.AddTransient<IBrandRepository, BrandRepository>();
         services.AddTransient<ITypeProductRepository, TypeProductRepository>();
         services.AddTransient<IProductRepository, ProductRepository>();
+        services.AddTransient<IClientRepository, ClientRepository>();
 
         //Configurar DBContext
         services.AddDbContext<ECommerceDbContext>(options =>

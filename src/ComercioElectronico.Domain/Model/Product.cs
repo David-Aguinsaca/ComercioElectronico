@@ -22,6 +22,8 @@ public class Product
     public string? Description { get; set; }
     [Required]
     public string Name { get; set; }
+        [RegularExpression(@"^\$?\d+(\.(\d{2}))?$", ErrorMessage ="Número máximo de dígitos")]
+
     public decimal Value { get; set; }
     public bool IsIva { get; set; }
     [Required]

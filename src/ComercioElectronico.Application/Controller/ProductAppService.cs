@@ -29,7 +29,7 @@ public class ProductAppService : IAppService<ProductDto, ProductCreateUpdateDto,
         try
         {
 
-            var product = mapper.Map<Product>(entityDto);
+            var product =  mapper.Map<Product>(entityDto);
             product = await productRepository.AddAsync(product);
 
             return true;
@@ -88,13 +88,13 @@ public class ProductAppService : IAppService<ProductDto, ProductCreateUpdateDto,
     {
         try
         {
-            var consulta = productRepository.GetAllIncluding(x => x.Brand, x => x.TypeProduct);
+            var consulta =  productRepository.GetAllIncluding(x => x.Brand, x => x.TypeProduct);
 
             var consultaOrdenDto = from x in consulta
                                    where x.Id == id
                                    select x;
 
-            return mapper.Map<ProductDto>(consultaOrdenDto.SingleOrDefault());
+            return  mapper.Map<ProductDto>(consultaOrdenDto.SingleOrDefault());
 
         }
         catch (System.Exception ex)

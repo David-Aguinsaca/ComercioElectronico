@@ -152,7 +152,7 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
 
                     /*
                     **
-                    Nota: se detectó un posible ciclo de objeto. Esto puede deberse a un ciclo o si la profundidad del 
+                    Nota: se detectó un posible ciclo de objeto. Esto se debe a un ciclo o si la profundidad del 
                     objeto es mayor que la profundidad máxima permitida 
 
                     var totalIva = entity.ShoppingCarItems.Where(x => x.Product.IsIva)
@@ -173,10 +173,6 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
                         }
                         subTotal = +item.Quantity * producto.Value;
                     }
-
-                    /* var jsonString = JsonSerializer.Serialize(appSetting.Iva/100);
-
-                    throw new Exception(jsonString); */
 
                     var totalValue = Math.Round(totalIva + subTotal, 2);
 

@@ -63,3 +63,11 @@ C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\Com
 C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\obj\Debug\net6.0\ComercioElectronico.HttpApi.pdb
 c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\obj\Debug\net6.0\ComercioElectronico.HttpApi.genruntimeconfig.cache
 c:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\obj\Debug\net6.0\ref\ComercioElectronico.HttpApi.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\baguinsa\OneDrive - Banco Pichincha C.A\Documentos\c#\ProyectoFinal\ComercioElectronico\src\ComercioElectronico.HttpApi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

@@ -71,10 +71,7 @@ public class TransactionAppService : IAppService<TransactionDto, TransactionCrea
     {
         try
         {
-            var consulta = transactionRepository.GetAllIncluding(x => x.Client);
-
-            var consultaOrdenDto = from x in consulta
-                                   select x;
+            var consultaOrdenDto = transactionRepository.GetAllIncluding(x => x.Client, x => x.Order);
 
             var objectListDto = mapper.Map<IEnumerable<TransactionDto>>(consultaOrdenDto);
 
@@ -92,11 +89,8 @@ public class TransactionAppService : IAppService<TransactionDto, TransactionCrea
     {
         try
         {
-            var consulta = transactionRepository.GetAllIncluding(x => x.Client);
-
-            var consultaOrdenDto = from x in consulta
-                                   where x.Id == id
-                                   select x;
+            var consultaOrdenDto = transactionRepository.GetAllIncluding(x => x.Client, x => x.Order)
+            .Where(x => x.Id == id);
 
             return mapper.Map<TransactionDto>(consultaOrdenDto.SingleOrDefault());
 

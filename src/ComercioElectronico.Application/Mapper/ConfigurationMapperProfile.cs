@@ -8,6 +8,21 @@ public class ConfigurationMapperProfile : Profile
 {
     public ConfigurationMapperProfile()
     {
+
+        //Shopping Cart Item
+        CreateMap<ShoppingCartItem, ShoppingCartItemDto>();
+        CreateMap<ShoppingCartItemDto, ShoppingCartItem>();
+        CreateMap<ShoppingCartItem, ShoppingCartItemCreateUpdatetDto>();
+        CreateMap<ShoppingCartItemCreateUpdatetDto, ShoppingCartItem>();
+        CreateMap<ShoppingCartItem, IEnumerable<ShoppingCartItemDto>>();
+
+        //Shopping Cart
+        CreateMap<ShoppingCart, ShoppingCartDto>();
+        CreateMap<ShoppingCartDto, ShoppingCart>();
+        CreateMap<ShoppingCart, ShoppingCartCreateUpdatetDto>();
+        CreateMap<ShoppingCartCreateUpdatetDto, ShoppingCart>();
+        CreateMap<ShoppingCart, IEnumerable<ShoppingCartDto>>();
+        
         //Client
         CreateMap<Client, ClientDto>();
         CreateMap<ClientDto, Client>();

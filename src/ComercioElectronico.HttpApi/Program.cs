@@ -1,4 +1,5 @@
 using ComercioElectronico.Application;
+using ComercioElectronico.HttpApi.Model;
 using ComercioElectronico.Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +12,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //paso 10
-//dbcontext
-//builder.Services.AddScoped<ECommerceDbContext>();
+/* builder.Services.Configure<AppSetting>(
+    builder.Configuration.GetSection(
+        "Impuesto:Iva:Percentage"
+    )
+); */
 
 //Inyeccion de independencia
 builder.Services.AddInfraestructure(builder.Configuration);

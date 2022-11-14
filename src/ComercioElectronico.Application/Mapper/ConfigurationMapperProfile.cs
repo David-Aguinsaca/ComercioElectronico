@@ -9,6 +9,27 @@ public class ConfigurationMapperProfile : Profile
     public ConfigurationMapperProfile()
     {
 
+        //Order
+        CreateMap<Order, OrderDto>();
+        CreateMap<OrderDto, Order>();
+        CreateMap<Order, OrderCreateUpdateDto>();
+        CreateMap<OrderCreateUpdateDto, Order>();
+        CreateMap<Order, IEnumerable<OrderDto>>();
+
+        //Order Item
+        CreateMap<OrderItem, OrderItemDto>();
+        CreateMap<OrderItemDto, OrderItem>();
+        CreateMap<OrderItem, OrderItemCreateUpdateDto>();
+        CreateMap<OrderItemCreateUpdateDto,OrderItem>();
+        CreateMap<OrderItem, IEnumerable<OrderItemDto>>();
+
+        //Shopping Cart Item
+        CreateMap<Transaction, TransactionDto>();
+        CreateMap<TransactionDto, Transaction>();
+        CreateMap<Transaction, TransactionCreateUpdateDto>();
+        CreateMap<TransactionCreateUpdateDto, Transaction>();
+        CreateMap<Transaction, IEnumerable<TransactionDto>>();
+
         //Shopping Cart Item
         CreateMap<ShoppingCartItem, ShoppingCartItemDto>();
         CreateMap<ShoppingCartItemDto, ShoppingCartItem>();

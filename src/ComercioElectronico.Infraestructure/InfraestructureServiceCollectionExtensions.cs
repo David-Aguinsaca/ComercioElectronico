@@ -19,6 +19,9 @@ public static class InfraestructureServiceCollectionExtensions
         services.AddTransient<IClientRepository, ClientRepository>();
         services.AddTransient<IShoppingCartRepository, ShoppingCartRepository>();
         services.AddTransient<IShoppingCartItemRepository, ShoppingCartItemRepository>();
+        services.AddTransient<IOrderRepository, OrderRepository>();
+        services.AddTransient<IOrderItemRepository, OrderItemRepository>();
+        services.AddTransient<ITransactionRepository, TransactionRepository>();
 
         //Configurar DBContext
         services.AddDbContext<ECommerceDbContext>(options =>

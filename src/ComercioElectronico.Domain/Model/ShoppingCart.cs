@@ -27,10 +27,4 @@ public class ShoppingCart
     [ForeignKey("ClientId")]
     public virtual Client Client { get; set; }
 
-    public void addItem(ShoppingCartItem item)
-    {
-
-        //item.Orden = this;
-        ShoppingCarItems.Add(item);
-    }
 }

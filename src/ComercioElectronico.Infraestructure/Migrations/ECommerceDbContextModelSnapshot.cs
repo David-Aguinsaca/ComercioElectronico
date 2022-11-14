@@ -64,6 +64,67 @@ namespace ComercioElectronico.Infraestructure.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ClientId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StatusShoppingCart")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("SubTotalValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("TotalIva")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItems");
+                });
+
             modelBuilder.Entity("ComercioElectronico.Domain.Model.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -162,6 +223,34 @@ namespace ComercioElectronico.Infraestructure.Migrations
                     b.ToTable("ShoppingCartItems");
                 });
 
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.Transaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ClientId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateTransaction")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Transactions");
+                });
+
             modelBuilder.Entity("ComercioElectronico.Domain.Model.TypeProduct", b =>
                 {
                     b.Property<int>("Id")
@@ -184,6 +273,34 @@ namespace ComercioElectronico.Infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TypeProducts");
+                });
+
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.Order", b =>
+                {
+                    b.HasOne("ComercioElectronico.Domain.Model.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.OrderItem", b =>
+                {
+                    b.HasOne("ComercioElectronico.Domain.Model.Order", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ComercioElectronico.Domain.Model.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ComercioElectronico.Domain.Model.Product", b =>
@@ -235,9 +352,33 @@ namespace ComercioElectronico.Infraestructure.Migrations
                     b.Navigation("ShoppingCart");
                 });
 
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.Transaction", b =>
+                {
+                    b.HasOne("ComercioElectronico.Domain.Model.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ComercioElectronico.Domain.Model.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("ComercioElectronico.Domain.Model.Brand", b =>
                 {
                     b.Navigation("ListProduct");
+                });
+
+            modelBuilder.Entity("ComercioElectronico.Domain.Model.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("ComercioElectronico.Domain.Model.ShoppingCart", b =>

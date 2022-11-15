@@ -31,22 +31,20 @@ public class OrderItemAppService : IAppService<OrderItemDto, OrderItemCreateUpda
 
             var producto = await productRepository.GetByIdAsync(entityDto.ProductId);
 
-            /* var jsonString = JsonSerializer.Serialize(producto);
-            throw new Exception(jsonString); */
-
             if (producto != null)
             {
                 if (producto.Stock > 0)
                 {
+                    //crear orden
                     var orderItem = mapper.Map<OrderItem>(entityDto);
-
                     orderItem = await orderItemRepository.AddAsync(orderItem);
+
                     return true;
                 }
                 throw new ArgumentException($"No hay stock del producto {producto.Name}");
 
             }
-            throw new ArgumentException($"El producto con la id:{entityDto.ProductId}");
+            throw new ArgumentException($"El producto con la id:{entityDto.ProductId} no existe");
 
 
 
@@ -101,13 +99,10 @@ public class OrderItemAppService : IAppService<OrderItemDto, OrderItemCreateUpda
     {
         try
         {
-            var consulta = orderItemRepository.GetAllIncluding(x => x.Product);
+            var consulta = orderItemRepository.GetAllIncluding(x => x.Product)
+            .Where(x=>x.Id == id).SingleOrDefault();
 
-            var consultaOrdenDto = from x in consulta
-                                   where x.Id == id
-                                   select x;
-
-            return mapper.Map<OrderItemDto>(consultaOrdenDto.SingleOrDefault());
+            return mapper.Map<OrderItemDto>(consulta);
 
         }
         catch (System.Exception ex)
@@ -115,6 +110,11 @@ public class OrderItemAppService : IAppService<OrderItemDto, OrderItemCreateUpda
             throw new ArgumentException(ex.ToString());
 
         }
+    }
+
+    public Task<OrderItemDto> Search(string id)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<bool> UpdateAsync(Guid id, OrderItemCreateUpdateDto entityDto)

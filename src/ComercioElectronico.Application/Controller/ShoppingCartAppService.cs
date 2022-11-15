@@ -18,6 +18,7 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
 
     private readonly IConfiguration iconfiguration;
     private readonly IOptions<AppSetting> ioption;
+    private readonly IOrderRepository orderRepository;
     private readonly IShoppingCartRepository shoppingCartRepository;
     private readonly IProductRepository productRepository;
     private readonly IClientRepository clientRepository;
@@ -25,13 +26,17 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
     private readonly IMapper mapper;
     //private readonly IValidator<TypeProductCreateUpdateDto> validator;
 
-    public ShoppingCartAppService(IShoppingCartRepository shoppingCartRepository,
-    IProductRepository productRepository, IClientRepository clientRepository, IConfiguration iconfiguration, IOptions<AppSetting> ioption,
-    IMapper mapper
+    public ShoppingCartAppService(
+        IOrderRepository orderRepository,
+        IShoppingCartRepository shoppingCartRepository,
+        IProductRepository productRepository, IClientRepository clientRepository, 
+        IConfiguration iconfiguration, IOptions<AppSetting> ioption,
+        IMapper mapper
     )
     {
         this.clientRepository = clientRepository;
         this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
         this.shoppingCartRepository = shoppingCartRepository;
 
         this.iconfiguration = iconfiguration;
@@ -85,7 +90,6 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
         try
         {
             var consulta = shoppingCartRepository.GetAllIncluding(x => x.Client, x => x.ShoppingCarItems);
-            //var consulta = shoppingCartRepository.GetAll();
 
             var objectListDto = mapper.Map<IEnumerable<ShoppingCartDto>>(consulta);
 
@@ -103,13 +107,16 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
     {
         try
         {
-            var consulta = shoppingCartRepository.GetAllIncluding(x => x.Client, x => x.ShoppingCarItems);
+            var consulta = shoppingCartRepository.GetAllIncluding(x => x.Client, x => x.ShoppingCarItems)
+            .Where(x => x.Id == id).SingleOrDefault();
 
-            var consultaOrdenDto = from x in consulta
-                                   where x.Id == id
-                                   select x;
+            if (consulta != null)
+            {
+                return mapper.Map<ShoppingCartDto>(consulta);
 
-            return mapper.Map<ShoppingCartDto>(consultaOrdenDto.SingleOrDefault());
+            }
+
+            throw new ArgumentException($"El usuario con el identificador {id} no esta registrado en la base de datos");
 
         }
         catch (System.Exception ex)
@@ -117,6 +124,11 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
             throw new ArgumentException(ex.ToString());
 
         }
+    }
+
+    public Task<ShoppingCartDto> Search(string search)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<bool> UpdateAsync(Guid id, ShoppingCartCreateUpdatetDto entityDto)
@@ -131,16 +143,18 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
 
             switch (entityDto.StatusShoppingCart)
             {
+                //B. Cancelar carrito de compras, eliminar carrito de compras
                 case StatusShoppingCart.Anulada:
-                    //B. Cancelar una orden, retornar los valores en stock. 
-                    foreach (var item in entity.ShoppingCarItems)
-                    {
-                        var product = await productRepository.GetByIdAsync(item.ProductId);
-                        product.Stock = product.Stock + item.Product.Stock;
-                        await productRepository.UpdateAsync(product);
-                    }
+
+                    shoppingCartRepository.Delete(entity);
+
                     break;
                 case StatusShoppingCart.Procesar:
+
+                    var updateEntity = mapper.Map<ShoppingCartCreateUpdatetDto, ShoppingCart>(entityDto, entity);
+
+                    await shoppingCartRepository.UpdateAsync(updateEntity);
+
                     break;
                 case StatusShoppingCart.Confirmar:
                     //C. Calcular los impuestos de la orden a todos los productos que posee la propiedad que contienen impuestos, 
@@ -176,8 +190,7 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
 
                     var totalValue = Math.Round(totalIva + subTotal, 2);
 
-                    //D. Calcular descuentos en la orden, segun una propiedad del cliente en el cual contiene el % del descuento.  
-                    //Los procesos ejemplo son referenciales si se considera se puede implementar otro. 
+                    //D. Calcular descuentos en la orden, segun una propiedad del cliente en el cual contiene el % del descuento. 
 
                     var totalDescuentoClien = totalValue - (totalValue * ((decimal)entity.Client.Discount / 100));
 
@@ -186,9 +199,14 @@ public class ShoppingCartAppService : IAppService<ShoppingCartDto, ShoppingCartC
                     entity.SubTotalValue = Math.Round(subTotal, 2);
                     entity.TotalValue = Math.Round(totalDescuentoClien, 2);
 
-                    var updateEntity = mapper.Map<ShoppingCartCreateUpdatetDto, ShoppingCart>(entityDto, entity);
+                    var updateEntityShoppingCart = mapper.Map<ShoppingCartCreateUpdatetDto, ShoppingCart>(entityDto, entity);
 
-                    await shoppingCartRepository.UpdateAsync(updateEntity);
+                    //actualizar carrito de compras
+                    await shoppingCartRepository.UpdateAsync(updateEntityShoppingCart);
+
+                    //orden
+                    //var updateEntityOrderCart = mapper.Map<OrderCreateUpdateDto, Order>(entityDto, entity);
+                    //await orderRepository.AddAsync(updateEntityOrderCart);
 
                     break;
 

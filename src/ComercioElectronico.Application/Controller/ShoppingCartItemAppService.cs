@@ -10,19 +10,19 @@ namespace ComercioElectronico.Application.Controller;
 
 public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, ShoppingCartItemCreateUpdatetDto, Guid>
 {
-    private readonly IShoppingCartItemRepository shoppingCartRepository;
+    private readonly IShoppingCartItemRepository shoppingCartItemRepository;
     private readonly IProductRepository productRepository;
 
     private readonly IMapper mapper;
     //private readonly IValidator<TypeProductCreateUpdateDto> validator;
 
-    public ShoppingCartItemAppService(IShoppingCartItemRepository shoppingCartRepository, IProductRepository productRepository,
+    public ShoppingCartItemAppService(IShoppingCartItemRepository shoppingCartRepository, IProductRepository productItemRepository,
     IMapper mapper
     //IValidator<TypeProductCreateUpdateDto> validator
     )
     {
-        this.productRepository = productRepository;
-        this.shoppingCartRepository = shoppingCartRepository;
+        this.productRepository = productItemRepository;
+        this.shoppingCartItemRepository = shoppingCartRepository;
         this.mapper = mapper;
         //this.validator = validator;
     }
@@ -41,7 +41,7 @@ public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, Shopp
                 if (producto.Stock > 0)
                 {
                     var product = mapper.Map<ShoppingCartItem>(entityDto);
-                    product = await shoppingCartRepository.AddAsync(product);
+                    product = await shoppingCartItemRepository.AddAsync(product);
                     return true;
                 }
                 throw new ArgumentException($"No hay stock del producto {producto.Name}");
@@ -63,13 +63,13 @@ public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, Shopp
         try
         {
 
-            var entity = await shoppingCartRepository.GetByIdAsync(id);
+            var entity = await shoppingCartItemRepository.GetByIdAsync(id);
             if (entity == null)
             {
                 throw new ArgumentException($"La marca con la id {id} no existe");
             }
 
-            shoppingCartRepository.Delete(entity);
+            shoppingCartItemRepository.Delete(entity);
             //await typeProductRepository.UnitOfWork.SaveChangesAsync();
 
             return true;
@@ -85,7 +85,7 @@ public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, Shopp
     {
         try
         {
-            var consulta = shoppingCartRepository.GetAllIncluding(x => x.Product);
+            var consulta = shoppingCartItemRepository.GetAllIncluding(x => x.Product);
 
             var consultaOrdenDto = from x in consulta
                                    select x;
@@ -106,7 +106,7 @@ public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, Shopp
     {
         try
         {
-            var consulta = shoppingCartRepository.GetAllIncluding(x => x.Product);
+            var consulta = shoppingCartItemRepository.GetAllIncluding(x => x.Product);
 
             var consultaOrdenDto = from x in consulta
                                    where x.Id == id
@@ -122,13 +122,18 @@ public class ShoppingCartItemAppService : IAppService<ShoppingCartItemDto, Shopp
         }
     }
 
+    public Task<ShoppingCartItemDto> Search(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> UpdateAsync(Guid id, ShoppingCartItemCreateUpdatetDto entityDto)
     {
         try
         {
-             var entity = await shoppingCartRepository.GetByIdAsync(id);
+             var entity = await shoppingCartItemRepository.GetByIdAsync(id);
              var updateEntity = mapper.Map<ShoppingCartItemCreateUpdatetDto, ShoppingCartItem>(entityDto, entity);
-             await shoppingCartRepository.UpdateAsync(updateEntity);
+             await shoppingCartItemRepository.UpdateAsync(updateEntity);
             return true;
         }
         catch (System.Exception ex)

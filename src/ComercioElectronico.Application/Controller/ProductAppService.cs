@@ -104,6 +104,11 @@ public class ProductAppService : IAppService<ProductDto, ProductCreateUpdateDto,
         }
     }
 
+    public Task<ProductDto> Search(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> UpdateAsync(Guid id, ProductCreateUpdateDto entityDto)
     {
         try

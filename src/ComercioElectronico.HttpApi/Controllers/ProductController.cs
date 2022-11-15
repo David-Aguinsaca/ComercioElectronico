@@ -1,8 +1,11 @@
 using ComercioElectronico.Application.Model;
 using ComercioElectronico.Application.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ComercioElectronico.HttpApi.Controllers;
+
+[Authorize]
 
 [ApiController]
 [Route("api/[controller]")]

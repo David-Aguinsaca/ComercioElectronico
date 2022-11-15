@@ -113,4 +113,18 @@ public class ClientAppService : IAppService<ClientDto, ClientCreateUpdateDto, Gu
         }
     }
 
+
+    public async Task<ClientDto> Search(string search)
+    {
+        var client = await clientRepository.SearchClient(search);
+
+        if (client != null)
+        {
+
+            return mapper.Map<ClientDto>(client);
+
+        }
+
+        throw new Exception($"Cliente no encontrado");
+    }
 }

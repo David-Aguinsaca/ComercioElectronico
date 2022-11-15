@@ -94,6 +94,11 @@ public class TypeProductAppService : IAppService<TypeProductDto, TypeProductCrea
         }
     }
 
+    public Task<TypeProductDto> Search(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> UpdateAsync(int id, TypeProductCreateUpdateDto entityDto)
     {
         try

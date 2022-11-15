@@ -102,6 +102,11 @@ public class TransactionAppService : IAppService<TransactionDto, TransactionCrea
         }
     }
 
+    public Task<TransactionDto> Search(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> UpdateAsync(Guid id, TransactionCreateUpdateDto entityDto)
     {
         try

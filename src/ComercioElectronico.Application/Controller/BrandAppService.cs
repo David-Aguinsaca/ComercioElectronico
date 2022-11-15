@@ -29,10 +29,20 @@ public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto, int>
         {
             //await validator.ValidateAndThrowAsync(x);
 
-            var brand = mapper.Map<Brand>(entityDto);
-            brand = await brandRepository.AddAsync(brand);
+            var existsName = await brandRepository.ExistsNameAsync(entityDto.Name);
 
-            return true;
+            if (!existsName)
+            {
+                var brand = mapper.Map<Brand>(entityDto);
+                brand = await brandRepository.AddAsync(brand);
+
+                return true;
+
+            }
+
+            throw new ArgumentException($"La marca con el nombre {entityDto.Name} ya existe");
+
+
         }
         catch (System.Exception ex)
         {
@@ -100,15 +110,29 @@ public class BrandAppService : IAppService<BrandDto, BrandCreateUpdateDto, int>
         }
     }
 
+    public Task<BrandDto> Search(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> UpdateAsync(int id, BrandCreateUpdateDto entityDto)
     {
 
         try
         {
-            var entity = await brandRepository.GetByIdAsync(id);
-            var updateEntity = mapper.Map<BrandCreateUpdateDto, Brand>(entityDto, entity);
-            await brandRepository.UpdateAsync(updateEntity);
-            return true;
+
+            var exsiteBrand = await brandRepository.GetByIdAsync(id);
+
+            if (exsiteBrand != null)
+            {
+                var entity = await brandRepository.GetByIdAsync(id);
+                var updateEntity = mapper.Map<BrandCreateUpdateDto, Brand>(entityDto, entity);
+                await brandRepository.UpdateAsync(updateEntity);
+                return true;
+            }
+            throw new ArgumentException($"EL usuario con el identificador {id} no existe");
+
+
         }
         catch (System.Exception ex)
         {

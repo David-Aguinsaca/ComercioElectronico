@@ -1,10 +1,12 @@
 using ComercioElectronico.Application.Controller;
 using ComercioElectronico.Application.Model;
 using ComercioElectronico.Application.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ComercioElectronico.HttpApi.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ClientController : ControllerBase
@@ -44,5 +46,11 @@ public class ClientController : ControllerBase
     public async Task<bool> DeleteAsync(Guid id)
     {
         return await clientAppService.DeleteAsync(id);
+    }
+
+    [HttpGet("sarch_client/{search}")]
+    public Task<ClientDto> SearchClient(string search)
+    {
+        return clientAppService.Search(search);
     }
 }

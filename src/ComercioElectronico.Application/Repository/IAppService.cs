@@ -11,4 +11,6 @@ public interface IAppService <ModelDto, ModelCreateUpdateDto, TypeId>
     Task<bool> DeleteAsync(TypeId id);
 
     Task<ModelDto> GetByIdAsync (TypeId id);
+
+    Task<ModelDto> Search(string id);
 }
